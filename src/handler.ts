@@ -653,8 +653,26 @@ function addDoucmentSymbol(res: SymbolInfo[], sym: DocumentSymbol, level: number
     text: name,
     level,
     kind: getSymbolKind(kind),
-    range,
-    selectionRange
+    range: {
+        end: {
+            character: range.end.character,
+            line: range.end.line + 1,
+        },
+        start: {
+            character: range.start.character + 1,
+            line: range.start.line + 1,
+        }
+    },
+    selectionRange: {
+        end: {
+            character: range.end.character,
+            line: range.end.line + 1,
+        },
+        start: {
+            character: range.start.character + 1,
+            line: range.start.line + 1,
+        }
+    }
   })
   if (children && children.length) {
     children.sort(sortSymbols)

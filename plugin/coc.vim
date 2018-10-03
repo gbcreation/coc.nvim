@@ -201,3 +201,11 @@ nnoremap <Plug>(coc-references)          :<C-u>call CocAction('jumpReferences')<
 nnoremap <Plug>(coc-openlink)            :<C-u>call CocAction('openLink')<CR>
 inoremap <silent> <Plug>_                <C-r>=coc#_complete()<CR>
 inoremap <expr> <Plug>(coc-complete-custom)     coc#complete_custom()
+
+let g:coc_text_objects = {
+\   'as': 'Symbol',
+\ }
+
+if exists('g:coc_text_objects')
+  call textobj#coc#init()
+endif
